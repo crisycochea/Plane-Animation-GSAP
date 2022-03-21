@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GSAP</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="background">
+  <div class="plane"></div>
+  <div class="bullet bullet1"></div>
+  <div class="text"> Just for fun</div>
+</div>
+<script>
+
+  const planeTimeLine =  () => {
+
+    const planeTimeLine = gsap.timeline()
+    planeTimeLine.to('.plane', { duration: 1.8, x: '+=900', ease: 'linear' })
+    planeTimeLine.to('.plane', { duration: 0.35, x: '+=100', y: '-=30', rotate: '-=20', ease: 'linear' },)
+    planeTimeLine.to('.plane', { duration: 0.3, x: '+=80', y: '-=50', rotate: '-=30', ease: 'linear' },)
+    planeTimeLine.to('.plane', { duration: 0.25, x: '+=30', y: '-=80', rotate: '-=40', ease: 'linear' },)
+    planeTimeLine.to('.plane', { duration: 0.3, x: '-=80', y: '-=50', rotate: '-=40', ease: 'linear' },)
+    planeTimeLine.to('.plane', { duration: 0.35, x: '-=100', y: '-=30', rotate: '-=50', ease: 'linear' },)
+    planeTimeLine.to('.plane', { duration: 2.8, x: '-=1400', ease: 'linear' })
+    return planeTimeLine
+  }
+  const bulletTimeLine = () => {
+
+    const bulletTimeLine = gsap.timeline()
+    bulletTimeLine.to('.bullet1', {
+      duration: 0.5,
+      x: '100vw',
+      ease: 'linear',
+      onStart: (params) => document.querySelector('.bullet1').style.opacity = '1',
+      onComplete: (params) => document.querySelector('.bullet1').style.opacity = '0',
+    },)
+    bulletTimeLine.to('.text', {
+      duration: 5,
+      rotate: "-=1800",
+      ease: 'back.out(2.5)',
+    }, '-=0.35')
+    return bulletTimeLine
+  }
+
+  let masterTimeLine = gsap.timeline({repeat: -1})
+  masterTimeLine.add(planeTimeLine())
+  masterTimeLine.add(bulletTimeLine(), "1.5")
+</script>
+</body>
+</html>
