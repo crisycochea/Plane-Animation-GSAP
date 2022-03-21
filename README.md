@@ -6,8 +6,11 @@ I was reviewing a co-worker PR, and he used a library called "GSAP", I didn't kn
 
 Just for fun.
 
-# That's ok, but... what did you do?
-You can watch it clicking [here](https://crisycochea.github.io/Plane-Animation-GSAP/).
+# That's ok, but... what did I do?
+
+![Plane Animation GSA](https://i.ibb.co/QJrp8Nc/plane-animation.gif)
+
+Or click [here](https://crisycochea.github.io/Plane-Animation-GSAP/).
 
 ## Disclaimer!
 It was made in a 1375 * 768, not intented to be fully responsive as it was made only to play with GSAP.
